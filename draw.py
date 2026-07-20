@@ -32,7 +32,7 @@ def draw_digit():
     digit = None
     def save_image():
         nonlocal digit
-        small = image.resize((28, 28))
+        small = image.resize((28, 28) , Image.Resampling.LANCZOS)
         small.save("digit28.png")
 
         digit = np.array(small)
@@ -42,8 +42,6 @@ def draw_digit():
         
         return digit
         
-        
-
     save_button = tk.Button(root, text="Save", command=save_image)
     save_button.pack()
 
